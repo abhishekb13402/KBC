@@ -41,7 +41,7 @@
             // 
             this.lblquestion.AutoSize = true;
             this.lblquestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblquestion.Location = new System.Drawing.Point(34, 46);
+            this.lblquestion.Location = new System.Drawing.Point(34, 76);
             this.lblquestion.Name = "lblquestion";
             this.lblquestion.Size = new System.Drawing.Size(65, 17);
             this.lblquestion.TabIndex = 0;
@@ -122,6 +122,7 @@
             this.Controls.Add(this.lblquestion);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
