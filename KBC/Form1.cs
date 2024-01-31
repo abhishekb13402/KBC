@@ -5,7 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.Remoting.Contexts;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,31 +16,36 @@ namespace KBC
 {
     public partial class Form1 : Form
     {
+  
         string connetionString, q_correctopt;
         SqlConnection cnn;
-        int num, Correctcount = 0;
-
+        int num, Correctcount = 0,QNo;
+        
         public void DataDisplay(int num)
         {
             try
             {
-                string query = $"SELECT q_name, q_optA, q_optB, q_optC, q_optD, q_Correctopt FROM Questions where q_id={num}";
+                
+                    string query = $"SELECT q_name, q_optA, q_optB, q_optC, q_optD, q_Correctopt FROM Questions where q_id={num}";
 
-                SqlCommand command = new SqlCommand(query, cnn);
+                    SqlCommand command = new SqlCommand(query, cnn);
 
-                SqlDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    lblquestion.Text = reader["q_name"].ToString();
-                    rbbtna.Text = reader["q_optA"].ToString();
-                    rbbtnb.Text = reader["q_optB"].ToString();
-                    rbbtnc.Text = reader["q_optC"].ToString();
-                    rbbtnd.Text = reader["q_optD"].ToString();
-                    q_correctopt = reader["q_Correctopt"].ToString();
-                }
+                    while (reader.Read())
+                    {
+                        lblquestion.Text = reader["q_name"].ToString();
+                        rbbtna.Text = reader["q_optA"].ToString();
+                        rbbtnb.Text = reader["q_optB"].ToString();
+                        rbbtnc.Text = reader["q_optC"].ToString();
+                        rbbtnd.Text = reader["q_optD"].ToString();
+                        q_correctopt = reader["q_Correctopt"].ToString();
+                    }
 
-                reader.Close();
+                    reader.Close();
+                
+                
+                
             }
             catch (SqlException sqlEx)
             {
@@ -50,23 +57,28 @@ namespace KBC
             }
         }
 
+        
         public Form1()
         {
+            
             InitializeComponent();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             try 
-            { 
-            connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
+            {
+                QNumber.Text = Form2.txt2;
+                QNo = Convert.ToInt32(QNumber.Text);
+            connetionString = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
             //connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;Trust Server Certificate=True";
 
 
 
             cnn = new SqlConnection(connetionString);
             cnn.Open();
-            MessageBox.Show("Connection Open  !");
+            //MessageBox.Show("Connection Open  !");
 
             Resetcomponent();
             num = Randomnum();
@@ -86,8 +98,11 @@ namespace KBC
 
         private int Randomnum()
         {
-            Random num = new Random();
-            return num.Next(1, 6);
+            
+                Random num = new Random();
+                return num.Next(1,6);
+
+            
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
