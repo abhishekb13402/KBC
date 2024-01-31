@@ -14,9 +14,9 @@ namespace KBC
 {
     public partial class Form1 : Form
     {
-        string connetionString;
+        string connetionString, q_correctopt;
         SqlConnection cnn;
-        int num,Correctcount=0;
+        int num, Correctcount = 0;
 
         public void DataDisplay(int num)
         {
@@ -27,15 +27,15 @@ namespace KBC
 
             SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    lblquestion.Text = reader["q_name"].ToString();
-                    rbbtna.Text = reader["q_optA"].ToString();
-                    rbbtnb.Text = reader["q_optB"].ToString();
-                    rbbtnc.Text = reader["q_optC"].ToString();
-                    rbbtnd.Text = reader["q_optD"].ToString();
-                    string q_correctopt = reader["q_Correctopt"].ToString();
-                }
+            while (reader.Read())
+            {
+                lblquestion.Text = reader["q_name"].ToString();
+                rbbtna.Text = reader["q_optA"].ToString();
+                rbbtnb.Text = reader["q_optB"].ToString();
+                rbbtnc.Text = reader["q_optC"].ToString();
+                rbbtnd.Text = reader["q_optD"].ToString();
+                q_correctopt = reader["q_Correctopt"].ToString();
+            }
 
             reader.Close();
 
@@ -58,7 +58,7 @@ namespace KBC
             MessageBox.Show("Connection Open  !");
 
             num = Randomnum();
-            lblrandom.Text=num.ToString();
+            lblrandom.Text = num.ToString();
             DataDisplay(num);
 
         }
@@ -84,8 +84,26 @@ namespace KBC
 
         private void btnsave_Click(object sender, EventArgs e)
         {
+            if (rbbtna.Checked && rbbtna.Text == q_correctopt)
+            {
+                Correctcount++;
+            }
+            else if (rbbtnb.Checked && rbbtnb.Text == q_correctopt)
+            {
+                Correctcount++;
+            }
+            else if (rbbtnc.Checked && rbbtnc.Text == q_correctopt)
+            {
+                Correctcount++;
+            }
+            else if (rbbtnd.Checked && rbbtnd.Text == q_correctopt)
+            {
+                Correctcount++;
+            }
 
-            
+            MessageBox.Show($"Correct Answers: {q_correctopt}, Score: {Correctcount}");
+
         }
+
     }
 }
