@@ -19,8 +19,9 @@ namespace KBC
   
         string connetionString, q_correctopt;
         SqlConnection cnn;
-        int num, Correctcount = 0,QNo;
-        
+        int num, Correctcount = 0,totalNoOfQuestions=0;
+        int currentQuestionCount = 1;
+        string currentSelectedAnswerText = string.Empty;
         public void DataDisplay(int num)
         {
             try
@@ -70,9 +71,10 @@ namespace KBC
             try 
             {
                 QNumber.Text = Form2.txt2;
-                QNo = Convert.ToInt32(QNumber.Text);
+                totalNoOfQuestions = Convert.ToInt32(QNumber.Text);
             connetionString = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
             //connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;Trust Server Certificate=True";
+
 
 
 
@@ -98,28 +100,66 @@ namespace KBC
 
         private int Randomnum()
         {
-            
-                Random num = new Random();
-                return num.Next(1,6);
 
-            
+            Random num = new Random();
+            return num.Next(1, 6);
+
+
         }
+
+
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             cnn.Close();
         }
 
+        private void rbbtna_CheckedChanged(object sender, EventArgs e)
+        {
+            currentSelectedAnswerText = (rbbtna.Checked) ? rbbtna.Text : "";
+
+           // rbbtna.BackColor =  (rbbtna.Checked && rbbtna.Text == q_correctopt) ? Color.Green : Color.Red;
+        }
+
+        private void rbbtnb_CheckedChanged(object sender, EventArgs e)
+        {
+            currentSelectedAnswerText = (rbbtnb.Checked) ? rbbtnb.Text : "";
+            //rbbtnb.BackColor=(rbbtnb.Checked &&rbbtnb.Text==q_correctopt) ? Color.Green :Color.Red;
+        }
+
+        private void rbbtnc_CheckedChanged(object sender, EventArgs e)
+        {
+            currentSelectedAnswerText = (rbbtnc.Checked) ? rbbtnc.Text : "";
+
+            //rbbtnc.BackColor = (rbbtnc.Checked && rbbtnc.Text == q_correctopt) ? Color.Green : Color.Red;
+        }
+
+        private void rbbtnd_CheckedChanged(object sender, EventArgs e)
+        {
+            currentSelectedAnswerText = (rbbtnd.Checked) ? rbbtnd.Text : "";
+
+            //rbbtnd.BackColor = (rbbtnd.Checked && rbbtnd.Text == q_correctopt) ? Color.Green : Color.Red;
+        }
+
         private void btn_Click(object sender, EventArgs e)
         {
             try
             {
-                btnsave.Enabled = true;
-                num = Randomnum();
-                lblrandom.Text = num.ToString();
+                if (currentQuestionCount < totalNoOfQuestions)
+                {
+                    btnsave.Enabled = true;
+                    num = Randomnum();
+                    lblrandom.Text = num.ToString();
 
-                Resetcomponent();
-                DataDisplay(num);
+                    Resetcomponent();
+                    DataDisplay(num);
+                    currentQuestionCount = currentQuestionCount + 1;
+                }
+                else
+                {
+                    MessageBox.Show("Question completed");
+                }
+                
             }
             catch(Exception ex) 
             {
@@ -144,6 +184,9 @@ namespace KBC
         {
             try
             {
+
+                
+
                 if (rbbtna.Checked && rbbtna.Text == q_correctopt)
                 {
                     rbbtna.BackColor = Color.Green;
