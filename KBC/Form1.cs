@@ -16,6 +16,31 @@ namespace KBC
     {
         string connetionString;
         SqlConnection cnn;
+        int num,Correctcount=0;
+
+        public void DataDisplay(int num)
+        {
+
+            string query = $"SELECT q_name, q_optA, q_optB, q_optC, q_optD, q_Correctopt FROM Questions where q_id={num}";
+
+            SqlCommand command = new SqlCommand(query, cnn);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lblquestion.Text = reader["q_name"].ToString();
+                    rbbtna.Text = reader["q_optA"].ToString();
+                    rbbtnb.Text = reader["q_optB"].ToString();
+                    rbbtnc.Text = reader["q_optC"].ToString();
+                    rbbtnd.Text = reader["q_optD"].ToString();
+                    string q_correctopt = reader["q_Correctopt"].ToString();
+                }
+
+            reader.Close();
+
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -32,30 +57,35 @@ namespace KBC
             cnn.Open();
             MessageBox.Show("Connection Open  !");
 
-            string query = "SELECT q_name, q_optA, q_optB, q_optC, q_optD, q_Correctopt FROM Questions";
+            num = Randomnum();
+            lblrandom.Text=num.ToString();
+            DataDisplay(num);
 
-            SqlCommand command = new SqlCommand(query, cnn);
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            // Process retrieved questions
-            while (reader.Read())
-            {
-                lblquestion.Text = reader["q_name"].ToString();
-                rbbtna.Text = reader["q_optA"].ToString();
-                rbbtnb.Text = reader["q_optB"].ToString();
-                rbbtnc.Text = reader["q_optC"].ToString();
-                rbbtnd.Text = reader["q_optD"].ToString();
-                string q_correctopt = reader["q_Correctopt"].ToString();
-
-                
-            }
         }
 
-            private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private int Randomnum()
+        {
+            Random num = new Random();
+            return num.Next(1, 6);
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             cnn.Close();
+        }
 
+        private void btn_Click(object sender, EventArgs e)
+        {
+            num = Randomnum();
+            lblrandom.Text = num.ToString();
+
+            DataDisplay(num);
+        }
+
+        private void btnsave_Click(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }

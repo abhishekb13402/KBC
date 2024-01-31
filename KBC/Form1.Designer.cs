@@ -35,6 +35,8 @@
             this.rbbtnd = new System.Windows.Forms.RadioButton();
             this.btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblrandom = new System.Windows.Forms.Label();
+            this.btnsave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblquestion
@@ -99,6 +101,7 @@
             this.btn.TabIndex = 5;
             this.btn.Text = "Next";
             this.btn.UseVisualStyleBackColor = true;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // panel1
             // 
@@ -108,11 +111,33 @@
             this.panel1.Size = new System.Drawing.Size(569, 10);
             this.panel1.TabIndex = 6;
             // 
+            // lblrandom
+            // 
+            this.lblrandom.AutoSize = true;
+            this.lblrandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrandom.Location = new System.Drawing.Point(365, 444);
+            this.lblrandom.Name = "lblrandom";
+            this.lblrandom.Size = new System.Drawing.Size(62, 17);
+            this.lblrandom.TabIndex = 7;
+            this.lblrandom.Text = "lblrndom";
+            // 
+            // btnsave
+            // 
+            this.btnsave.Location = new System.Drawing.Point(222, 427);
+            this.btnsave.Name = "btnsave";
+            this.btnsave.Size = new System.Drawing.Size(107, 34);
+            this.btnsave.TabIndex = 8;
+            this.btnsave.Text = "Save";
+            this.btnsave.UseVisualStyleBackColor = true;
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 500);
+            this.Controls.Add(this.btnsave);
+            this.Controls.Add(this.lblrandom);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.rbbtnd);
@@ -138,6 +163,8 @@
         private System.Windows.Forms.RadioButton rbbtnd;
         private System.Windows.Forms.Button btn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblrandom;
+        private System.Windows.Forms.Button btnsave;
     }
 }
 
