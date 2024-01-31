@@ -37,24 +37,27 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblrandom = new System.Windows.Forms.Label();
             this.btnsave = new System.Windows.Forms.Button();
+            this.QNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblquestion
             // 
             this.lblquestion.AutoSize = true;
             this.lblquestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblquestion.Location = new System.Drawing.Point(34, 76);
+            this.lblquestion.Location = new System.Drawing.Point(45, 94);
+            this.lblquestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblquestion.Name = "lblquestion";
-            this.lblquestion.Size = new System.Drawing.Size(65, 17);
+            this.lblquestion.Size = new System.Drawing.Size(76, 20);
             this.lblquestion.TabIndex = 0;
             this.lblquestion.Text = "Question";
             // 
             // rbbtna
             // 
             this.rbbtna.AutoSize = true;
-            this.rbbtna.Location = new System.Drawing.Point(37, 184);
+            this.rbbtna.Location = new System.Drawing.Point(49, 226);
+            this.rbbtna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbbtna.Name = "rbbtna";
-            this.rbbtna.Size = new System.Drawing.Size(66, 17);
+            this.rbbtna.Size = new System.Drawing.Size(79, 20);
             this.rbbtna.TabIndex = 1;
             this.rbbtna.TabStop = true;
             this.rbbtna.Text = "Option A";
@@ -63,9 +66,10 @@
             // rbbtnb
             // 
             this.rbbtnb.AutoSize = true;
-            this.rbbtnb.Location = new System.Drawing.Point(37, 243);
+            this.rbbtnb.Location = new System.Drawing.Point(49, 299);
+            this.rbbtnb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbbtnb.Name = "rbbtnb";
-            this.rbbtnb.Size = new System.Drawing.Size(66, 17);
+            this.rbbtnb.Size = new System.Drawing.Size(79, 20);
             this.rbbtnb.TabIndex = 2;
             this.rbbtnb.TabStop = true;
             this.rbbtnb.Text = "Option B";
@@ -74,9 +78,10 @@
             // rbbtnc
             // 
             this.rbbtnc.AutoSize = true;
-            this.rbbtnc.Location = new System.Drawing.Point(37, 297);
+            this.rbbtnc.Location = new System.Drawing.Point(49, 366);
+            this.rbbtnc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbbtnc.Name = "rbbtnc";
-            this.rbbtnc.Size = new System.Drawing.Size(66, 17);
+            this.rbbtnc.Size = new System.Drawing.Size(79, 20);
             this.rbbtnc.TabIndex = 3;
             this.rbbtnc.TabStop = true;
             this.rbbtnc.Text = "Option C";
@@ -85,9 +90,10 @@
             // rbbtnd
             // 
             this.rbbtnd.AutoSize = true;
-            this.rbbtnd.Location = new System.Drawing.Point(37, 350);
+            this.rbbtnd.Location = new System.Drawing.Point(49, 431);
+            this.rbbtnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbbtnd.Name = "rbbtnd";
-            this.rbbtnd.Size = new System.Drawing.Size(67, 17);
+            this.rbbtnd.Size = new System.Drawing.Size(80, 20);
             this.rbbtnd.TabIndex = 4;
             this.rbbtnd.TabStop = true;
             this.rbbtnd.Text = "Option D";
@@ -95,9 +101,10 @@
             // 
             // btn
             // 
-            this.btn.Location = new System.Drawing.Point(499, 427);
+            this.btn.Location = new System.Drawing.Point(665, 526);
+            this.btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(107, 34);
+            this.btn.Size = new System.Drawing.Size(143, 42);
             this.btn.TabIndex = 5;
             this.btn.Text = "Next";
             this.btn.UseVisualStyleBackColor = true;
@@ -106,36 +113,51 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Location = new System.Drawing.Point(37, 158);
+            this.panel1.Location = new System.Drawing.Point(49, 194);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(569, 10);
+            this.panel1.Size = new System.Drawing.Size(759, 12);
             this.panel1.TabIndex = 6;
             // 
             // lblrandom
             // 
             this.lblrandom.AutoSize = true;
             this.lblrandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrandom.Location = new System.Drawing.Point(365, 444);
+            this.lblrandom.Location = new System.Drawing.Point(487, 546);
+            this.lblrandom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblrandom.Name = "lblrandom";
-            this.lblrandom.Size = new System.Drawing.Size(62, 17);
+            this.lblrandom.Size = new System.Drawing.Size(73, 20);
             this.lblrandom.TabIndex = 7;
             this.lblrandom.Text = "lblrndom";
             // 
             // btnsave
             // 
-            this.btnsave.Location = new System.Drawing.Point(222, 427);
+            this.btnsave.Location = new System.Drawing.Point(296, 526);
+            this.btnsave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(107, 34);
+            this.btnsave.Size = new System.Drawing.Size(143, 42);
             this.btnsave.TabIndex = 8;
             this.btnsave.Text = "Save";
             this.btnsave.UseVisualStyleBackColor = true;
             this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
+            // QNumber
+            // 
+            this.QNumber.AutoSize = true;
+            this.QNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QNumber.Location = new System.Drawing.Point(80, 35);
+            this.QNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.QNumber.Name = "QNumber";
+            this.QNumber.Size = new System.Drawing.Size(102, 20);
+            this.QNumber.TabIndex = 9;
+            this.QNumber.Text = "Question No";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 500);
+            this.ClientSize = new System.Drawing.Size(875, 615);
+            this.Controls.Add(this.QNumber);
             this.Controls.Add(this.btnsave);
             this.Controls.Add(this.lblrandom);
             this.Controls.Add(this.panel1);
@@ -145,6 +167,7 @@
             this.Controls.Add(this.rbbtnb);
             this.Controls.Add(this.rbbtna);
             this.Controls.Add(this.lblquestion);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
@@ -165,6 +188,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblrandom;
         private System.Windows.Forms.Button btnsave;
+        private System.Windows.Forms.Label QNumber;
     }
 }
 
