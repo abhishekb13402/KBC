@@ -72,7 +72,7 @@ namespace KBC
             {
                 QNumber.Text = Form2.txt2;
                 totalNoOfQuestions = Convert.ToInt32(QNumber.Text);
-            connetionString = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
+            connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
             //connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;Trust Server Certificate=True";
 
 
@@ -145,26 +145,42 @@ namespace KBC
         {
             try
             {
-                if (currentQuestionCount < totalNoOfQuestions)
+                if (validateAnserSelected())
                 {
-                    btnsave.Enabled = true;
-                    num = Randomnum();
-                    lblrandom.Text = num.ToString();
+                    MessageBox.Show("Please select answer first.");
+                    return;
+                }
 
-                    Resetcomponent();
-                    DataDisplay(num);
-                    currentQuestionCount = currentQuestionCount + 1;
-                }
-                else
-                {
-                    MessageBox.Show("Question completed");
-                }
-                
+                displayNextQuestion();
+
             }
-            catch(Exception ex) 
+            catch (Exception ex) 
             {
                 MessageBox.Show("Some error occured." + ex.ToString());
             }
+        }
+
+        private void displayNextQuestion()
+        {
+            if (currentQuestionCount < totalNoOfQuestions)
+            {
+                btnsave.Enabled = true;
+                num = Randomnum();
+                lblrandom.Text = num.ToString();
+
+                Resetcomponent();
+                DataDisplay(num);
+                currentQuestionCount = currentQuestionCount + 1;
+            }
+            else
+            {
+                MessageBox.Show("Question completed Score is: "+Correctcount);
+            }
+        }
+
+        private bool validateAnserSelected()
+        {
+            return !rbbtna.Checked && !rbbtnb.Checked && !rbbtnc.Checked && !rbbtnd.Checked;
         }
 
         private void Resetcomponent()
@@ -184,55 +200,30 @@ namespace KBC
         {
             try
             {
+                // Array to hold the radio buttons
+                RadioButton[] radioButtons = { rbbtna, rbbtnb, rbbtnc, rbbtnd };
 
-                
-
-                if (rbbtna.Checked && rbbtna.Text == q_correctopt)
+                // Iterate over each radio button
+                foreach (RadioButton radioButton in radioButtons)
                 {
-                    rbbtna.BackColor = Color.Green;
-                    Correctcount++;
-                }
-                else
-                {
-                    rbbtna.BackColor = Color.Red;
-                }
-
-                if (rbbtnb.Checked && rbbtnb.Text == q_correctopt)
-                {
-                    rbbtnb.BackColor = Color.Green;
-                    Correctcount++;
-                }
-                else
-                {
-                    rbbtnb.BackColor = Color.Red;
+                    // Check if the current radio button is checked and its text matches the correct option
+                    if (radioButton.Checked && radioButton.Text == q_correctopt)
+                    {
+                        radioButton.BackColor = Color.Green; // Set background color to green
+                        Correctcount++; // Increment the correct count
+                    }
+                    else
+                    {
+                        radioButton.BackColor = Color.Red; // Set background color to red
+                    }
                 }
 
-                if (rbbtnc.Checked && rbbtnc.Text == q_correctopt)
-                {
-                    rbbtnc.BackColor = Color.Green;
-                    Correctcount++;
-                }
-                else
-                {
-                    rbbtnc.BackColor = Color.Red;
-                }
-
-                if (rbbtnd.Checked && rbbtnd.Text == q_correctopt)
-                {
-                    rbbtnd.BackColor = Color.Green;
-                    Correctcount++;
-                }
-                else
-                {
-                    rbbtnd.BackColor = Color.Red;
-                }
-
-                MessageBox.Show($"Correct Answers: {q_correctopt}, Score: {Correctcount}");
+                //MessageBox.Show($"Correct Answers: {q_correctopt}, Score: {Correctcount}");
                 btnsave.Enabled = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Some error occured." + ex.ToString());
+                MessageBox.Show("Some error occurred: " + ex.ToString());
             }
         }
 
