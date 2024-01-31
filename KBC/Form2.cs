@@ -36,7 +36,12 @@ namespace KBC
             //close form1 interval
             form1 = null;
             //Now close form2 and come on form1
-            this.Show();
+            this.Close();
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
 
         }
     }
