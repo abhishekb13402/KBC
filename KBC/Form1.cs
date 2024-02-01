@@ -102,7 +102,7 @@ namespace KBC
         {
 
             Random num = new Random();
-            return num.Next(1, 6);
+            return num.Next(1, 9);
 
 
         }

@@ -16,7 +16,7 @@ namespace KBC
     {
         public static string txt2 = "";
         SqlConnection cnn;
-        int qcount;
+        public static int qcount;
         string connetionString= @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
 
 
