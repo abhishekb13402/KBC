@@ -31,11 +31,6 @@ namespace KBC
 
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-           
-
-        //}
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
@@ -75,55 +70,53 @@ namespace KBC
                 string username, userpassword;
                 username = guestusername.Text;
                 userpassword = guestuserpassword.Text;
-                cnn = new SqlConnection(connetionString);
-                cnn.Open();
-                string query = "select * from login where user_name = '" + guestusername.Text + "' and user_password = '" + guestuserpassword.Text +"'";
 
-                SqlDataAdapter sda = new SqlDataAdapter(query,cnn);
-
-                DataTable dataTable = new DataTable();
-                sda.Fill(dataTable);
-                txt2 = questionattendno.Text;
-
-                //1>0 && 6>3
-                if ((dataTable.Rows.Count > 0) && (qcount >= Convert.ToInt32(txt2)))
+                if (username == "admin" && userpassword == "admin")
                 {
-                    //hide form2
                     this.Hide();
-                    //create time interval for the form1
-                    Form1 form1 = new Form1();
-                    form1.ShowDialog();//show form1
+                    Form3 form3 = new Form3();
+                    form3.ShowDialog();//show form1
                                        //close form1 interval
-                                       //form1 = null;
+                                       //form2 = null;
                                        //Now close form2 and come on form1
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Enter valid id password or question attempt number");
+                    cnn = new SqlConnection(connetionString);
+                    cnn.Open();
+                    string query = "select * from login where user_name = '" + guestusername.Text + "' and user_password = '" + guestuserpassword.Text + "'";
+
+                    SqlDataAdapter sda = new SqlDataAdapter(query, cnn);
+
+                    DataTable dataTable = new DataTable();
+                    sda.Fill(dataTable);
+                    txt2 = questionattendno.Text;
+
+                    //1>0 && 6>3
+                    if ((dataTable.Rows.Count > 0) && (qcount >= Convert.ToInt32(txt2)))
+                    {
+                        //hide form2
+                        this.Hide();
+                        //create time interval for the form1
+                        Form1 form1 = new Form1();
+                        form1.ShowDialog();//show form1
+                                           //close form1 interval
+                                           //form1 = null;
+                                           //Now close form2 and come on form1
+                        this.Close();
+                    }
                 }
+                //else
+                //{
+                //    MessageBox.Show("Enter valid id password or question attempt number");
+                //}
             }catch(Exception ex)
             {
                 MessageBox.Show("error occure "+ex);
             }
         }
 
-        private void adminbtnsubmit_Click(object sender, EventArgs e)
-        {
-            if (adminusername.Text == "admin" && adminuserpassword.Text == "admin")
-            {
-                this.Hide();
-                Form3 form3 = new Form3();
-                form3.ShowDialog();//show form1
-                                   //close form1 interval
-                //form2 = null;
-                //Now close form2 and come on form1
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Enter valid id password");
-            }
-        }
+        
     }
 }
