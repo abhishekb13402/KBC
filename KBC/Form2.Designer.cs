@@ -43,13 +43,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.adminbtnsubmit = new System.Windows.Forms.Button();
+            this.lbltotalquestion = new System.Windows.Forms.Label();
+            this.lbldislplaytotalquestion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Felix Titling", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 269);
+            this.label1.Location = new System.Drawing.Point(48, 253);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(313, 16);
@@ -58,7 +60,7 @@
             // 
             // questionattendno
             // 
-            this.questionattendno.Location = new System.Drawing.Point(165, 301);
+            this.questionattendno.Location = new System.Drawing.Point(380, 253);
             this.questionattendno.Margin = new System.Windows.Forms.Padding(2);
             this.questionattendno.Name = "questionattendno";
             this.questionattendno.Size = new System.Drawing.Size(76, 20);
@@ -102,7 +104,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Location = new System.Drawing.Point(416, 53);
+            this.panel1.Location = new System.Drawing.Point(473, 36);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(10, 367);
             this.panel1.TabIndex = 5;
@@ -112,7 +114,7 @@
             this.guestusername.Location = new System.Drawing.Point(209, 119);
             this.guestusername.Margin = new System.Windows.Forms.Padding(2);
             this.guestusername.Name = "guestusername";
-            this.guestusername.Size = new System.Drawing.Size(152, 20);
+            this.guestusername.Size = new System.Drawing.Size(247, 20);
             this.guestusername.TabIndex = 6;
             // 
             // guestuserpassword
@@ -120,7 +122,8 @@
             this.guestuserpassword.Location = new System.Drawing.Point(209, 186);
             this.guestuserpassword.Margin = new System.Windows.Forms.Padding(2);
             this.guestuserpassword.Name = "guestuserpassword";
-            this.guestuserpassword.Size = new System.Drawing.Size(152, 20);
+            this.guestuserpassword.PasswordChar = '*';
+            this.guestuserpassword.Size = new System.Drawing.Size(247, 20);
             this.guestuserpassword.TabIndex = 7;
             // 
             // lblguest
@@ -150,6 +153,7 @@
             this.adminuserpassword.Location = new System.Drawing.Point(649, 186);
             this.adminuserpassword.Margin = new System.Windows.Forms.Padding(2);
             this.adminuserpassword.Name = "adminuserpassword";
+            this.adminuserpassword.PasswordChar = '*';
             this.adminuserpassword.Size = new System.Drawing.Size(152, 20);
             this.adminuserpassword.TabIndex = 15;
             // 
@@ -195,11 +199,35 @@
             this.adminbtnsubmit.UseVisualStyleBackColor = true;
             this.adminbtnsubmit.Click += new System.EventHandler(this.adminbtnsubmit_Click);
             // 
+            // lbltotalquestion
+            // 
+            this.lbltotalquestion.AutoSize = true;
+            this.lbltotalquestion.Font = new System.Drawing.Font("Felix Titling", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalquestion.Location = new System.Drawing.Point(48, 313);
+            this.lbltotalquestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltotalquestion.Name = "lbltotalquestion";
+            this.lbltotalquestion.Size = new System.Drawing.Size(265, 16);
+            this.lbltotalquestion.TabIndex = 17;
+            this.lbltotalquestion.Text = "Total Questions in DataBase :";
+            // 
+            // lbldislplaytotalquestion
+            // 
+            this.lbldislplaytotalquestion.AutoSize = true;
+            this.lbldislplaytotalquestion.Font = new System.Drawing.Font("Felix Titling", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldislplaytotalquestion.Location = new System.Drawing.Point(342, 313);
+            this.lbldislplaytotalquestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbldislplaytotalquestion.Name = "lbldislplaytotalquestion";
+            this.lbldislplaytotalquestion.Size = new System.Drawing.Size(43, 16);
+            this.lbldislplaytotalquestion.TabIndex = 18;
+            this.lbldislplaytotalquestion.Text = "QNO";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 463);
+            this.Controls.Add(this.lbldislplaytotalquestion);
+            this.Controls.Add(this.lbltotalquestion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.adminuserpassword);
             this.Controls.Add(this.adminusername);
@@ -241,5 +269,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button adminbtnsubmit;
+        private System.Windows.Forms.Label lbltotalquestion;
+        private System.Windows.Forms.Label lbldislplaytotalquestion;
     }
 }

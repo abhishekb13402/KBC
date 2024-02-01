@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -14,7 +15,10 @@ namespace KBC
     public partial class Form2 : Form
     {
         public static string txt2 = "";
-        
+        SqlConnection cnn;
+        string connetionString;
+
+
         public Form2()
         {
             InitializeComponent();
@@ -38,7 +42,29 @@ namespace KBC
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            //logic for total questions available in database
+            FetchTotalQuestioninDB();
 
+        }
+
+        private void FetchTotalQuestioninDB()
+        {
+            try
+            {
+                connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
+
+                cnn = new SqlConnection(connetionString);
+                cnn.Open();
+
+                string query = string.Format("SELECT COUNT(q_id) FROM Questions");
+                SqlCommand command = new SqlCommand(query, cnn);
+                int qcount = (int)command.ExecuteScalar();
+                lbldislplaytotalquestion.Text= qcount.ToString();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error occure " + e);
+            }
         }
 
         private void guestuserbtnsubmit_Click(object sender, EventArgs e)
