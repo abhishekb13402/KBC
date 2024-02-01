@@ -14,9 +14,11 @@ namespace KBC
     public partial class Form3 : Form
     {
 
-        SqlConnection cnn;
+        SqlConnection con;
         int qid;
-        string connetionString = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
+        SqlCommand cmd;
+        //SqlDataAdapter adapt;
+        string connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
 
         public Form3()
         {
@@ -64,7 +66,10 @@ namespace KBC
 
         private void Form3_Load(object sender, EventArgs e)
         {
-           
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "questions");
+            dgview.DataSource = ds.Tables["questions"].DefaultView;
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
@@ -81,6 +86,40 @@ namespace KBC
 
         private void Insert_Click(object sender, EventArgs e)
         {
+            if ( tbq_name.Text != "" && tbq_opta.Text != "" && tbq_optb.Text != "" && tbq_optc.Text != "" && tbq_optd.Text != "" && tbq_Correctopt.Text != "")
+            {
+                con = new SqlConnection(connetionString);
+                con.Open();
+                cmd = new SqlCommand("insert into questions(q_name,q_optA,q_optB,q_optC,q_optD,q_Correctopt) values(@q_name,@q_optA,@q_optB,@q_optC,@q_optD,@q_Correctopt)", con);
+
+                //cmd.Parameters.AddWithValue("@q_id", tbq_id.Text);
+                cmd.Parameters.AddWithValue("@q_name", tbq_name.Text);
+                cmd.Parameters.AddWithValue("@q_optA", tbq_opta.Text);
+                cmd.Parameters.AddWithValue("@q_optB", tbq_optb .Text);
+                cmd.Parameters.AddWithValue("@q_optC", tbq_optc.Text);
+                cmd.Parameters.AddWithValue("@q_optD", tbq_optd.Text);
+                cmd.Parameters.AddWithValue("@q_Correctopt", tbq_Correctopt.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record Inserted Successfully click on display to view");
+                
+                ClearData();
+            }
+            else
+            {
+                MessageBox.Show("Please enter mandatory details!");
+            }
+        }
+
+        private void ClearData()
+        {
+            tbq_id.Text = "";
+            tbq_name.Text = "";
+            tbq_opta.Text = "";
+            tbq_optb.Text = "";
+            tbq_optc.Text = "";
+            tbq_optd.Text = "";
+            tbq_Correctopt.Text = "";
 
         }
 
@@ -97,8 +136,8 @@ namespace KBC
             tbq_optb.Text= dgview.Rows[e.RowIndex].Cells[3].Value.ToString();
             tbq_optc.Text= dgview.Rows[e.RowIndex].Cells[4].Value.ToString();
             tbq_optd.Text= dgview.Rows[e.RowIndex].Cells[5].Value.ToString();
-            tbq_optd.Text= dgview.Rows[e.RowIndex].Cells[6].Value.ToString();
-
+            tbq_Correctopt.Text= dgview.Rows[e.RowIndex].Cells[6].Value.ToString();
+            
         }
     }
 }
