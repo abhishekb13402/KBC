@@ -175,6 +175,15 @@ namespace KBC
             else
             {
                 MessageBox.Show("Question completed Score is: "+Correctcount);
+                //OpenFileDialog form 2
+                this.Hide();
+                //create time interval for the form1
+                Form2 form2 = new Form2();
+                form2.ShowDialog();//show form1
+                                   //close form1 interval
+                                   //form1 = null;
+                                   //Now close form2 and come on form1
+                this.Close();
             }
         }
 

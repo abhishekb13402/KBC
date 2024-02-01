@@ -65,5 +65,22 @@ namespace KBC
             }
 
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            //create time interval for the form1
+            Form2 form2 = new Form2();
+            form2.ShowDialog();//show form1
+                               //close form1 interval
+                               //form1 = null;
+                               //Now close form2 and come on form1
+            this.Close();
+        }
     }
 }
