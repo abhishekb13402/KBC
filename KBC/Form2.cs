@@ -16,7 +16,9 @@ namespace KBC
     {
         public static string txt2 = "";
         SqlConnection cnn;
-        string connetionString;
+        int qcount;
+        string connetionString= @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
+
 
 
         public Form2()
@@ -51,14 +53,13 @@ namespace KBC
         {
             try
             {
-                connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
-
+                
                 cnn = new SqlConnection(connetionString);
                 cnn.Open();
 
                 string query = string.Format("SELECT COUNT(q_id) FROM Questions");
                 SqlCommand command = new SqlCommand(query, cnn);
-                int qcount = (int)command.ExecuteScalar();
+                qcount = (int)command.ExecuteScalar();
                 lbldislplaytotalquestion.Text= qcount.ToString();
             }
             catch(Exception e)
@@ -69,22 +70,41 @@ namespace KBC
 
         private void guestuserbtnsubmit_Click(object sender, EventArgs e)
         {
-            if (guestusername.Text == "user" && guestuserpassword.Text == "user")
+            try
             {
+                string username, userpassword;
+                username = guestusername.Text;
+                userpassword = guestuserpassword.Text;
+                cnn = new SqlConnection(connetionString);
+                cnn.Open();
+                string query = "select * from login where user_name = '" + guestusername.Text + "' and user_password = '" + guestuserpassword.Text +"'";
+
+                SqlDataAdapter sda = new SqlDataAdapter(query,cnn);
+
+                DataTable dataTable = new DataTable();
+                sda.Fill(dataTable);
                 txt2 = questionattendno.Text;
-                //hide form2
-                this.Hide();
-                //create time interval for the form1
-                Form1 form1 = new Form1();
-                form1.ShowDialog();//show form1
-                                   //close form1 interval
-                //form1 = null;
-                //Now close form2 and come on form1
-                this.Close();
-            }
-            else
+
+                //1>0 && 6>3
+                if ((dataTable.Rows.Count > 0) && (qcount >= Convert.ToInt32(txt2)))
+                {
+                    //hide form2
+                    this.Hide();
+                    //create time interval for the form1
+                    Form1 form1 = new Form1();
+                    form1.ShowDialog();//show form1
+                                       //close form1 interval
+                                       //form1 = null;
+                                       //Now close form2 and come on form1
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Enter valid id password or question attempt number");
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Enter valid id password");
+                MessageBox.Show("error occure "+ex);
             }
         }
 
