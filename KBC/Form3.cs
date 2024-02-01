@@ -13,6 +13,9 @@ namespace KBC
 {
     public partial class Form3 : Form
     {
+        SqlConnection cnn;
+        string connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
+
         public Form3()
         {
             InitializeComponent();
@@ -36,21 +39,12 @@ namespace KBC
             try
 
             {
-                 String str = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
-
-                String query = "select * from questions";
-
-                SqlConnection con = new SqlConnection(str);
-
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                con.Open();
-
+                //LAPTOP-2AMVTRQA
+                //MAYUR\SQLEXPRESS01
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
                 DataSet ds = new DataSet();
-
-                MessageBox.Show("connect with sql server");
-
-                //con.Close();
+                da.Fill(ds, "questions");
+                dataGridView1.DataSource = ds.Tables["questions"].DefaultView;
 
             }
 
@@ -68,7 +62,7 @@ namespace KBC
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
