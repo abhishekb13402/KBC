@@ -18,7 +18,7 @@ namespace KBC
         int qid;
         SqlCommand cmd;
         //SqlDataAdapter adapt;
-        string connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
+        string connetionString = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
 
         public Form3()
         {
@@ -27,6 +27,29 @@ namespace KBC
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (qid != 0)
+                {
+                    con = new SqlConnection(connetionString);
+                    cmd = new SqlCommand("Delete questions where q_id=@q_id", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@q_id", qid);
+
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Record Deleted Successfully click on display to view");
+                    Display();
+                    ClearData();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
         }
 
@@ -37,7 +60,7 @@ namespace KBC
 
      
 
-        private void Display(object sender, EventArgs e)
+        public void Display(object sender, EventArgs e)
         {
             //button1_Click_1
             try
@@ -45,10 +68,12 @@ namespace KBC
             {
                 //LAPTOP-2AMVTRQA
                 //MAYUR\SQLEXPRESS01
+                con = new SqlConnection(connetionString);
+                con.Open();
                 SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
                 DataSet ds = new DataSet();
                 da.Fill(ds, "questions");
-                dgview.DataSource = ds.Tables["questions"].DefaultView;
+                dgview.DataSource = ds.Tables["questions"].DefaultView; con.Close();
 
             }
 
@@ -66,10 +91,12 @@ namespace KBC
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            con = new SqlConnection(connetionString);
+            con.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
             DataSet ds = new DataSet();
             da.Fill(ds, "questions");
-            dgview.DataSource = ds.Tables["questions"].DefaultView;
+            dgview.DataSource = ds.Tables["questions"].DefaultView; con.Close();
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
@@ -87,7 +114,8 @@ namespace KBC
         private void Insert_Click(object sender, EventArgs e)
         {
             try
-            {
+          {
+           
                 if (tbq_name.Text != "" && tbq_opta.Text != "" && tbq_optb.Text != "" && tbq_optc.Text != "" && tbq_optd.Text != "" && tbq_Correctopt.Text != "")
                 {
                     con = new SqlConnection(connetionString);
@@ -131,7 +159,9 @@ namespace KBC
 
         private void Update_Click(object sender, EventArgs e)
         {
-
+        
+        
+        
             try
             {
 
@@ -173,6 +203,36 @@ namespace KBC
             catch(Exception ex)
             {
                 MessageBox.Show("update error occure "+ex);
+            } 
+        
+  
+
+
+        }
+
+        private void Display()
+        {
+            try
+            {
+                //LAPTOP-2AMVTRQA
+                //MAYUR\SQLEXPRESS01
+                con = new SqlConnection(connetionString);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
+                DataSet ds = new DataSet();
+                da.Fill(ds, "questions");
+                dgview.DataSource = ds.Tables["questions"].DefaultView;
+                con.Close();
+
+
+            }
+
+            catch (Exception es)
+
+            {
+
+                MessageBox.Show(es.Message);
+
             }
         }
 
