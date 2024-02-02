@@ -18,7 +18,7 @@ namespace KBC
         int qid;
         SqlCommand cmd;
         //SqlDataAdapter adapt;
-        string connetionString = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
+        string connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
 
         public Form3()
         {
@@ -40,7 +40,7 @@ namespace KBC
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record Deleted Successfully click on display to view");
-                    Display();
+                    Display(sender, e);
                     ClearData();
                 }
                
@@ -183,6 +183,8 @@ namespace KBC
                             {
                                 MessageBox.Show("Record Updated Successfully. Click on Display to view.");
                                 ClearData();
+                                Display(sender, e);
+
                             }
                             else
                             {
