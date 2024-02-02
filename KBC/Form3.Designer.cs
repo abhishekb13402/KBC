@@ -57,7 +57,11 @@
             this.Insert.Location = new System.Drawing.Point(1353, 92);
             this.Insert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Insert.Name = "Insert";
+
+
+
             this.Insert.Size = new System.Drawing.Size(95, 39);
+
             this.Insert.TabIndex = 1;
             this.Insert.Text = "Insert";
             this.Insert.UseVisualStyleBackColor = false;
@@ -70,7 +74,9 @@
             this.Update.Location = new System.Drawing.Point(1353, 158);
             this.Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Update.Name = "Update";
+
             this.Update.Size = new System.Drawing.Size(95, 39);
+
             this.Update.TabIndex = 2;
             this.Update.Text = "update";
             this.Update.UseVisualStyleBackColor = false;
@@ -78,16 +84,18 @@
             // 
             // delete
             // 
-            this.delete.BackColor = System.Drawing.Color.Red;
-            this.delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete.Location = new System.Drawing.Point(1353, 218);
-            this.delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(95, 37);
-            this.delete.TabIndex = 3;
-            this.delete.Text = "Delete";
-            this.delete.UseVisualStyleBackColor = false;
-            this.delete.Click += new System.EventHandler(this.button3_Click);
+
+            this.Delete.BackColor = System.Drawing.Color.Red;
+            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete.Location = new System.Drawing.Point(1015, 177);
+            this.Delete.Margin = new System.Windows.Forms.Padding(2);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(82, 30);
+            this.Delete.TabIndex = 3;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = false;
+            this.Delete.Click += new System.EventHandler(this.button3_Click);
+
             // 
             // dgview
             // 
