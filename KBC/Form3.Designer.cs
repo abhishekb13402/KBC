@@ -57,7 +57,7 @@
             this.Insert.Location = new System.Drawing.Point(1015, 75);
             this.Insert.Margin = new System.Windows.Forms.Padding(2);
             this.Insert.Name = "Insert";
-            this.Insert.Size = new System.Drawing.Size(71, 32);
+            this.Insert.Size = new System.Drawing.Size(82, 32);
             this.Insert.TabIndex = 1;
             this.Insert.Text = "Insert";
             this.Insert.UseVisualStyleBackColor = false;
@@ -70,7 +70,7 @@
             this.Update.Location = new System.Drawing.Point(1015, 128);
             this.Update.Margin = new System.Windows.Forms.Padding(2);
             this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(71, 32);
+            this.Update.Size = new System.Drawing.Size(82, 32);
             this.Update.TabIndex = 2;
             this.Update.Text = "update";
             this.Update.UseVisualStyleBackColor = false;
@@ -83,7 +83,7 @@
             this.Delete.Location = new System.Drawing.Point(1015, 177);
             this.Delete.Margin = new System.Windows.Forms.Padding(2);
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(71, 30);
+            this.Delete.Size = new System.Drawing.Size(82, 30);
             this.Delete.TabIndex = 3;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = false;
