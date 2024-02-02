@@ -114,8 +114,7 @@ namespace KBC
         private void Insert_Click(object sender, EventArgs e)
         {
             try
-          {
-           
+            {
                 if (tbq_name.Text != "" && tbq_opta.Text != "" && tbq_optb.Text != "" && tbq_optc.Text != "" && tbq_optd.Text != "" && tbq_Correctopt.Text != "")
                 {
                     con = new SqlConnection(connetionString);
@@ -159,9 +158,7 @@ namespace KBC
 
         private void Update_Click(object sender, EventArgs e)
         {
-        
-        
-        
+
             try
             {
 
@@ -203,36 +200,6 @@ namespace KBC
             catch(Exception ex)
             {
                 MessageBox.Show("update error occure "+ex);
-            } 
-        
-  
-
-
-        }
-
-        private void Display()
-        {
-            try
-            {
-                //LAPTOP-2AMVTRQA
-                //MAYUR\SQLEXPRESS01
-                con = new SqlConnection(connetionString);
-                con.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
-                DataSet ds = new DataSet();
-                da.Fill(ds, "questions");
-                dgview.DataSource = ds.Tables["questions"].DefaultView;
-                con.Close();
-
-
-            }
-
-            catch (Exception es)
-
-            {
-
-                MessageBox.Show(es.Message);
-
             }
         }
 

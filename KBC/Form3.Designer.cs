@@ -57,11 +57,7 @@
             this.Insert.Location = new System.Drawing.Point(1353, 92);
             this.Insert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Insert.Name = "Insert";
-
-
-
-            this.Insert.Size = new System.Drawing.Size(95, 39);
-
+            this.Insert.Size = new System.Drawing.Size(82, 32);
             this.Insert.TabIndex = 1;
             this.Insert.Text = "Insert";
             this.Insert.UseVisualStyleBackColor = false;
@@ -74,6 +70,7 @@
             this.Update.Location = new System.Drawing.Point(1353, 158);
             this.Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Update.Name = "Update";
+            this.Update.Size = new System.Drawing.Size(82, 32);
 
             this.Update.Size = new System.Drawing.Size(95, 39);
 
