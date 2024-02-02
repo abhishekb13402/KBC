@@ -18,7 +18,7 @@ namespace KBC
         int qid;
         SqlCommand cmd;
         //SqlDataAdapter adapt;
-        string connetionString = @"Data Source=LAPTOP-2AMVTRQA;Initial Catalog=KBC;Integrated Security=True;";
+        string connetionString = @"Data Source=MAYUR\SQLEXPRESS01;Initial Catalog=KBC;Integrated Security=True;";
 
         public Form3()
         {
@@ -27,6 +27,29 @@ namespace KBC
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (qid != 0)
+                {
+                    con = new SqlConnection(connetionString);
+                    cmd = new SqlCommand("Delete questions where q_id=@q_id", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@q_id", qid);
+
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Record Deleted Successfully click on display to view");
+                    Display();
+                    ClearData();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
         }
 
@@ -37,7 +60,7 @@ namespace KBC
 
      
 
-        private void Display(object sender, EventArgs e)
+        public void Display(object sender, EventArgs e)
         {
             //button1_Click_1
             try
@@ -45,10 +68,12 @@ namespace KBC
             {
                 //LAPTOP-2AMVTRQA
                 //MAYUR\SQLEXPRESS01
+                con = new SqlConnection(connetionString);
+                con.Open();
                 SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
                 DataSet ds = new DataSet();
                 da.Fill(ds, "questions");
-                dgview.DataSource = ds.Tables["questions"].DefaultView;
+                dgview.DataSource = ds.Tables["questions"].DefaultView; con.Close();
 
             }
 
@@ -66,10 +91,12 @@ namespace KBC
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            con = new SqlConnection(connetionString);
+            con.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
             DataSet ds = new DataSet();
             da.Fill(ds, "questions");
-            dgview.DataSource = ds.Tables["questions"].DefaultView;
+            dgview.DataSource = ds.Tables["questions"].DefaultView; con.Close();
         }
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
@@ -86,7 +113,7 @@ namespace KBC
 
         private void Insert_Click(object sender, EventArgs e)
         {
-            if ( tbq_name.Text != "" && tbq_opta.Text != "" && tbq_optb.Text != "" && tbq_optc.Text != "" && tbq_optd.Text != "" && tbq_Correctopt.Text != "")
+            if ( tbq_name.Text != string.Empty && tbq_opta.Text != string.Empty && tbq_optb.Text != string.Empty && tbq_optc.Text != string.Empty && tbq_optd.Text != string.Empty && tbq_Correctopt.Text != string.Empty)
             {
                 con = new SqlConnection(connetionString);
                 con.Open();
@@ -125,7 +152,66 @@ namespace KBC
 
         private void Update_Click(object sender, EventArgs e)
         {
+            if (qid > 0)
+            {
 
+
+                con = new SqlConnection(connetionString);
+
+                cmd = new SqlCommand("update questions set q_name=@q_name,q_optA=@q_optA,q_optB=@q_optB,q_optC=@q_optC,q_optD=@q_optD,q_Correctopt=@q_Correctopt where q_id=@q_id", con);
+                cmd.CommandType=CommandType.Text;
+               
+                cmd.Parameters.AddWithValue("@q_name", tbq_name.Text);
+                cmd.Parameters.AddWithValue("@q_optA", tbq_opta.Text);
+                cmd.Parameters.AddWithValue("@q_optB", tbq_optb.Text);
+                cmd.Parameters.AddWithValue("@q_optC", tbq_optc.Text);
+                cmd.Parameters.AddWithValue("@q_optD", tbq_optd.Text);
+                cmd.Parameters.AddWithValue("@q_Correctopt", tbq_Correctopt.Text);
+                cmd.Parameters.AddWithValue("@q_id", this.tbq_id.Text);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record updated Successfully click on display to view");
+
+                Display();
+                ClearData();
+
+            }
+            else
+            {
+                MessageBox.Show("Table is empty");
+            }
+
+
+        }
+
+        private void Display()
+        {
+            try
+
+            {
+                //LAPTOP-2AMVTRQA
+                //MAYUR\SQLEXPRESS01
+                con = new SqlConnection(connetionString);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", connetionString);
+                DataSet ds = new DataSet();
+                da.Fill(ds, "questions");
+                dgview.DataSource = ds.Tables["questions"].DefaultView;
+                con.Close();
+
+
+            }
+
+            catch (Exception es)
+
+            {
+
+                MessageBox.Show(es.Message);
+
+
+
+            }
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
