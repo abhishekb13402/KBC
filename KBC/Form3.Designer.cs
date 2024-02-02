@@ -30,7 +30,7 @@
         {
             this.Insert = new System.Windows.Forms.Button();
             this.Update = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
             this.dgview = new System.Windows.Forms.DataGridView();
             this.btndisplay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,10 +54,10 @@
             // 
             this.Insert.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Insert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Insert.Location = new System.Drawing.Point(1015, 75);
-            this.Insert.Margin = new System.Windows.Forms.Padding(2);
+            this.Insert.Location = new System.Drawing.Point(1353, 92);
+            this.Insert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Insert.Name = "Insert";
-            this.Insert.Size = new System.Drawing.Size(71, 32);
+            this.Insert.Size = new System.Drawing.Size(95, 39);
             this.Insert.TabIndex = 1;
             this.Insert.Text = "Insert";
             this.Insert.UseVisualStyleBackColor = false;
@@ -67,37 +67,37 @@
             // 
             this.Update.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update.Location = new System.Drawing.Point(1015, 128);
-            this.Update.Margin = new System.Windows.Forms.Padding(2);
+            this.Update.Location = new System.Drawing.Point(1353, 158);
+            this.Update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(71, 32);
+            this.Update.Size = new System.Drawing.Size(95, 39);
             this.Update.TabIndex = 2;
             this.Update.Text = "update";
             this.Update.UseVisualStyleBackColor = false;
             this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
-            // Delete
+            // delete
             // 
-            this.Delete.BackColor = System.Drawing.Color.Red;
-            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete.Location = new System.Drawing.Point(1015, 177);
-            this.Delete.Margin = new System.Windows.Forms.Padding(2);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(71, 30);
-            this.Delete.TabIndex = 3;
-            this.Delete.Text = "Delete";
-            this.Delete.UseVisualStyleBackColor = false;
-            this.Delete.Click += new System.EventHandler(this.button3_Click);
+            this.delete.BackColor = System.Drawing.Color.Red;
+            this.delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete.Location = new System.Drawing.Point(1353, 218);
+            this.delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(95, 37);
+            this.delete.TabIndex = 3;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = false;
+            this.delete.Click += new System.EventHandler(this.button3_Click);
             // 
             // dgview
             // 
             this.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgview.Location = new System.Drawing.Point(25, 233);
-            this.dgview.Margin = new System.Windows.Forms.Padding(2);
+            this.dgview.Location = new System.Drawing.Point(33, 287);
+            this.dgview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgview.Name = "dgview";
             this.dgview.RowHeadersWidth = 51;
             this.dgview.RowTemplate.Height = 24;
-            this.dgview.Size = new System.Drawing.Size(1118, 283);
+            this.dgview.Size = new System.Drawing.Size(1491, 348);
             this.dgview.TabIndex = 4;
             this.dgview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgview.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
@@ -106,10 +106,10 @@
             // 
             this.btndisplay.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btndisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndisplay.Location = new System.Drawing.Point(1015, 32);
-            this.btndisplay.Margin = new System.Windows.Forms.Padding(2);
+            this.btndisplay.Location = new System.Drawing.Point(1353, 39);
+            this.btndisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btndisplay.Name = "btndisplay";
-            this.btndisplay.Size = new System.Drawing.Size(82, 28);
+            this.btndisplay.Size = new System.Drawing.Size(109, 34);
             this.btndisplay.TabIndex = 5;
             this.btndisplay.Text = "display";
             this.btndisplay.UseVisualStyleBackColor = false;
@@ -119,10 +119,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(85, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(113, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 20);
+            this.label1.Size = new System.Drawing.Size(49, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "q_id";
             // 
@@ -130,10 +129,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(66, 75);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(88, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.Size = new System.Drawing.Size(83, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "q_name";
             // 
@@ -141,10 +139,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(488, 32);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(651, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
+            this.label3.Size = new System.Drawing.Size(75, 25);
             this.label3.TabIndex = 8;
             this.label3.Text = "q_optA";
             // 
@@ -152,10 +149,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(488, 75);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(651, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 20);
+            this.label4.Size = new System.Drawing.Size(74, 25);
             this.label4.TabIndex = 9;
             this.label4.Text = "q_optB";
             // 
@@ -163,10 +159,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(488, 128);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(651, 158);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 20);
+            this.label5.Size = new System.Drawing.Size(76, 25);
             this.label5.TabIndex = 10;
             this.label5.Text = "q_optC";
             // 
@@ -174,10 +169,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(488, 174);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(651, 214);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 20);
+            this.label6.Size = new System.Drawing.Size(72, 25);
             this.label6.TabIndex = 11;
             this.label6.Text = "q_optd";
             // 
@@ -185,76 +179,75 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(49, 177);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(65, 218);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 20);
+            this.label7.Size = new System.Drawing.Size(125, 25);
             this.label7.TabIndex = 12;
             this.label7.Text = "q_Correctopt";
             // 
             // tbq_id
             // 
-            this.tbq_id.Location = new System.Drawing.Point(180, 40);
-            this.tbq_id.Margin = new System.Windows.Forms.Padding(2);
+            this.tbq_id.Location = new System.Drawing.Point(240, 49);
+            this.tbq_id.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbq_id.Name = "tbq_id";
             this.tbq_id.ReadOnly = true;
-            this.tbq_id.Size = new System.Drawing.Size(218, 20);
+            this.tbq_id.Size = new System.Drawing.Size(289, 22);
             this.tbq_id.TabIndex = 13;
             // 
             // tbq_name
             // 
-            this.tbq_name.Location = new System.Drawing.Point(180, 78);
-            this.tbq_name.Margin = new System.Windows.Forms.Padding(2);
+            this.tbq_name.Location = new System.Drawing.Point(240, 96);
+            this.tbq_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbq_name.Multiline = true;
             this.tbq_name.Name = "tbq_name";
-            this.tbq_name.Size = new System.Drawing.Size(218, 83);
+            this.tbq_name.Size = new System.Drawing.Size(289, 101);
             this.tbq_name.TabIndex = 14;
             // 
             // tbq_optd
             // 
-            this.tbq_optd.Location = new System.Drawing.Point(611, 177);
-            this.tbq_optd.Margin = new System.Windows.Forms.Padding(2);
+            this.tbq_optd.Location = new System.Drawing.Point(815, 218);
+            this.tbq_optd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbq_optd.Name = "tbq_optd";
-            this.tbq_optd.Size = new System.Drawing.Size(228, 20);
+            this.tbq_optd.Size = new System.Drawing.Size(303, 22);
             this.tbq_optd.TabIndex = 15;
             // 
             // tbq_optc
             // 
-            this.tbq_optc.Location = new System.Drawing.Point(611, 128);
-            this.tbq_optc.Margin = new System.Windows.Forms.Padding(2);
+            this.tbq_optc.Location = new System.Drawing.Point(815, 158);
+            this.tbq_optc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbq_optc.Name = "tbq_optc";
-            this.tbq_optc.Size = new System.Drawing.Size(228, 20);
+            this.tbq_optc.Size = new System.Drawing.Size(303, 22);
             this.tbq_optc.TabIndex = 16;
             // 
             // tbq_optb
             // 
-            this.tbq_optb.Location = new System.Drawing.Point(611, 77);
-            this.tbq_optb.Margin = new System.Windows.Forms.Padding(2);
+            this.tbq_optb.Location = new System.Drawing.Point(815, 95);
+            this.tbq_optb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbq_optb.Name = "tbq_optb";
-            this.tbq_optb.Size = new System.Drawing.Size(228, 20);
+            this.tbq_optb.Size = new System.Drawing.Size(303, 22);
             this.tbq_optb.TabIndex = 17;
             // 
             // tbq_opta
             // 
-            this.tbq_opta.Location = new System.Drawing.Point(611, 32);
-            this.tbq_opta.Margin = new System.Windows.Forms.Padding(2);
+            this.tbq_opta.Location = new System.Drawing.Point(815, 39);
+            this.tbq_opta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbq_opta.Name = "tbq_opta";
-            this.tbq_opta.Size = new System.Drawing.Size(228, 20);
+            this.tbq_opta.Size = new System.Drawing.Size(303, 22);
             this.tbq_opta.TabIndex = 18;
             // 
             // tbq_Correctopt
             // 
-            this.tbq_Correctopt.Location = new System.Drawing.Point(180, 177);
-            this.tbq_Correctopt.Margin = new System.Windows.Forms.Padding(2);
+            this.tbq_Correctopt.Location = new System.Drawing.Point(240, 218);
+            this.tbq_Correctopt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbq_Correctopt.Name = "tbq_Correctopt";
-            this.tbq_Correctopt.Size = new System.Drawing.Size(218, 20);
+            this.tbq_Correctopt.Size = new System.Drawing.Size(289, 22);
             this.tbq_Correctopt.TabIndex = 19;
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 538);
+            this.ClientSize = new System.Drawing.Size(1539, 662);
             this.Controls.Add(this.tbq_Correctopt);
             this.Controls.Add(this.tbq_opta);
             this.Controls.Add(this.tbq_optb);
@@ -271,9 +264,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btndisplay);
             this.Controls.Add(this.dgview);
-            this.Controls.Add(this.Delete);
+            this.Controls.Add(this.delete);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.Insert);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form3";
             this.Text = "form3";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
@@ -287,7 +281,7 @@
         #endregion
         private System.Windows.Forms.Button Insert;
         private System.Windows.Forms.Button Update;
-        private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.DataGridView dgview;
         private System.Windows.Forms.Button btndisplay;
         private System.Windows.Forms.Label label1;
